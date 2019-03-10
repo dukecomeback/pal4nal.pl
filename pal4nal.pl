@@ -68,7 +68,7 @@ foreach $key (keys %pseq){
         $dseq{$key} or die "ERROR: no cds sequence for $key!!!\n";
 }
 
-############################## genewise/estwise in parallel
+############################## genewise in parallel
 
 foreach $key (keys %pseq){
 	`echo ">$key\n$pseq{$key}" >$key.pep`;
