@@ -9,10 +9,10 @@ Story start like this:
 
 The pain goes like this:    
   MACSE take unbearable time when dealing with large alignments.   
-  pal2nal.pl is fast, however, it have zero tolerance to cds-pep sequence inconsistency thus on this situation give an empty output. What make it worse? cds-pep inconsistency exists even with the data downloaded from Ensembl/NCBI(genome).   
+  pal2nal.pl is fast, however, it have zero tolerance to cds-pep sequence inconsistency, thus on this situation give an empty output. What make it worse? cds-pep inconsistency exists even with the data downloaded from Ensembl/NCBI(genome).   
 
 The last straw crashed me:    
-  Recently I found that my CDS alignments, gap-removed using Gblocks -t=c, contain lots of premature stop codons when being    translated into pretein (maybe I use Gblocks wrong). Can I removing gaps from protein alignment first then translate them to CDS alignment?    
+  Recently I found that my CDS alignments, gap-removed using Gblocks -t=c, contain lots of premature stop codons when being    translated into preteins (maybe I use Gblocks wrong). Can I removing gaps from protein alignment first then translate them to CDS alignment?    
 
 How does pal4nal.pl do it?   
   1)readin protein alignment and corresponding CDS sequence   
