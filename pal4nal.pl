@@ -18,7 +18,7 @@ Usage: perl $0 pep.align cds.fa (-n num)
 the result file would be pep.align.pal4nal
 while warning message would be revealed on the screen, or you can re-direct it
 
-																						Du Kang 2019-3-10
+						           Du Kang 2019-3-10
 --------------------------------------
 EOF
 
