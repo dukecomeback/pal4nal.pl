@@ -18,7 +18,7 @@ Usage: perl $0 pep.align cds.fa (-n num)
 the result file would be pep.align.pal4nal
 while warning message would be revealed on the screen, or you can re-direct it
 
-						           Du Kang 2019-3-10
+									Du Kang 2019-3-10
 --------------------------------------
 EOF
 
@@ -134,20 +134,21 @@ foreach $key (keys %pseq){
 	for $i (0..$l-1){
 		$site=substr ($queseq,$i,1);
 		$csite=substr($tarcds1,$i,1).substr($tarcds2,$i,1).substr($tarcds3,$i,1);
+		$csitep=substr ($tarpep,$i,1);
 		if ($site=~/[A-Z]/) {
-			if (substr ($tarpep,$i,1) =~ /X/i){
+			if ($csitep =~ /X/i){
 				$inconsistency=1;
 				print ">>>Warning: $key in $ARGV[0] contains a premature stop condon at site $i\n";
 				$cseqal =~ s/$site/---/;
-			} elsif (substr ($tarpep,$i,1) eq "!") {
+			} elsif ($csitep eq "!") {
 				$inconsistency=1;
 				print ">>>Warning: $key in $ARGV[0] presend a frameshift with its cds at site $i\n";
 				$cseqal =~ s/$site/---/;
-			} elsif (substr ($tarpep,$i,1) eq "-") {
+			} elsif ($csitep eq "-") {
 				$inconsistency=1;
 				print ">>>Warning: $key in $ARGV[0] have no cds corresponding at site $i\n";
 				$cseqal =~ s/$site/---/;
-			} elsif (substr ($tarpep,$i,1) ne $site) {
+			} elsif ($csitep ne $site) {
 				$inconsistency=1;
 				print ">>>Warning: $key in $ARGV[0] is inconsistent with its cds sequence at site $i: $site <=> $csite\n";
 				$cseqal =~ s/$site/$csite/;
