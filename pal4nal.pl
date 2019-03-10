@@ -13,7 +13,7 @@ Pleaes let me have genewise program in the PATH;
 Please let the protein and its corresponding cds in the same name.
 
 Usage: perl $0 pep.align cds.fa (-n num)
--n set the threads number
+-n set the threads number, default 15
 
 the result file would be pep.align.pal4nal
 while warning message would be revealed on the screen, or you can re-direct it
