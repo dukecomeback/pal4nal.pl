@@ -2,6 +2,7 @@
 similar as what pal2nal.pl do, i.e. change protein alignment into CDS alignment, except some difference.
 
 Story start like this: 
+
   CDS alignment for gene is very important for my research, you'll need that for dN/dS calculation and so on.
   Currently there are two choices to fix this: 
   1)pal2nal.pl (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538804/)
