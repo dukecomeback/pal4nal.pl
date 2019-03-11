@@ -139,8 +139,8 @@ foreach $key (keys %pseq){
 		if ($site=~/[A-Z]/) {
 			if ($csitep =~ /X/i){
 				$inconsistency=1;
-				$item= $csitep eq "X" ? "premature stop condon" : "unknown aa";
-				print ">>>Warning: $key in $ARGV[0] contains a $item at site $i\n";
+				$item= $csitep eq "X" ? "a premature stop condon" : "an unknown aa";
+				print ">>>Warning: $key in $ARGV[0] contains $item at site $i\n";
 				$cseqal =~ s/$site/---/;
 			} elsif ($csitep eq "!") {
 				$inconsistency=1;
