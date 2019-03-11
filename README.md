@@ -24,5 +24,5 @@ At last:
 
 Many thanks and best wishes.   
 
-                                                     Kang @ Würzburg
+                                                     Kang (dukang1117@outlook.com)
                                                      2019-3-11
