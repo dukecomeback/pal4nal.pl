@@ -86,7 +86,7 @@ foreach $key (keys %pseq){
 	`rm $key.pep $key.cds`;
 
 	############################# parse genewise outcomes
-	$wise{$key} =~ s/(.*?)\/\//$1/;
+	$wise{$key} =~ s/(.*?)\/\/.*/$1/s;
 	@wise=split /\n/, $wise{$key};
 	$queseq="";
 	$tarpep="";
