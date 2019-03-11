@@ -16,8 +16,8 @@ The last straw crashed me:
 
 How does pal4nal.pl do it?   
   1)readin protein alignment and corresponding CDS sequence   
-  2)align each protein alignment with its corresponding CDS sequence using genewise    
-  3)return the CDS sequence according to the genewise alignemnt   
+  2)align each protein with its corresponding CDS sequence using genewise    
+  3)retrieve the CDS sequence according to the genewise alignemnt for each protein in the alignment   
 
 At last:    
   Bugs may exist, I would be very appreciated if you could let me know.   
