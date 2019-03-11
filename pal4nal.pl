@@ -9,8 +9,9 @@ I do what pal2nal.pl do, but in a different way. pal2nal.pl fails and stops when
 I use genewise to retrieve cds for each protein, this means, you can even feed me with intron-containning DNA sequences.
 
 Request:
-Pleaes let me have genewise program in the PATH;
-Please let the protein and its corresponding cds in the same name.
+Pleaes let me have genewise program in the PATH
+Please let the protein and its corresponding cds in the same name
+Please let the alignment and sequence file in fasta format
 
 Usage: perl $0 pep.align cds.fa (-n num)
 -n set the threads number, default 15
