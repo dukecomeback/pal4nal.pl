@@ -12,7 +12,7 @@ The pain goes like this:
   pal2nal.pl is fast, however, it have zero tolerance to cds-pep sequence inconsistency, thus on this situation give an empty output. What make it worse? cds-pep inconsistency exists even with the data downloaded from Ensembl/NCBI(genome).   
 
 The last straw crashed me:    
-  Recently I found that my CDS alignments, gap-removed using Gblocks -t=c, contain lots of premature stop codons when being    translated into preteins (maybe I use Gblocks wrong). Can I removing gaps from protein alignment first then translate them to CDS alignment? (I have tested it afterward, better not do this!!!! genewise failed to retrieve the correct condon #@2019-3-12)
+  Recently I found that my CDS alignments, gap-removed using Gblocks -t=c, contain lots of premature stop codons when being    translated into proteins (maybe I use Gblocks wrong). Can I removing gaps from protein alignment first then translate them to CDS alignment? (I have tested it afterward, better not do this!!!! genewise failed to retrieve the correct condon, however, the good news is, when using pal4nal.pl with "Gblock -t=c" afterwards, premature stop codons never pop out again #@2019-3-12)
 
 How does pal4nal.pl do it?   
   1)readin protein alignment and corresponding CDS sequence   
