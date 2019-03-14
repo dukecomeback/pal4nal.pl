@@ -74,6 +74,7 @@ foreach $key (keys %pseq){
 foreach $key (keys %pseq){
 	`echo ">$key\n$pseq{$key}" >$key.pep`;
 	`echo ">$key\n$dseq{$key}" >$key.cds`;
+	sleep rand 1 while threads->list(threads::running) >= $max_process;
 	$thread{$key} = threads->new(sub{`genewise $key.pep $key.cds -quiet`});
 }
 
