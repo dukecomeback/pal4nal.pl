@@ -5,21 +5,20 @@ use threads;
 my $usage=<<EOF;
 --------------------------------------
 Self-introduction:
-I do what pal2nal.pl do, but in a different way. pal2nal.pl fails and stops when frameshit exist (ERROR:inconsistency), while I'll inform you that, but do not fail out.
-I use genewise to retrieve cds for each protein, this means, you can even feed me with intron-containning DNA sequences.
+	I do what pal2nal.pl do, but in a different way. pal2nal.pl fails and stops when frameshit exist (ERROR:inconsistency), while I'll inform you that, but do not fail out.
+	I use genewise to retrieve cds for each protein, this means, you can even feed me with intron-containning DNA sequences.
 
 Request:
-Pleaes let me have genewise program in the PATH
-Please let the protein and its corresponding cds in the same name
-Please let the alignment and sequence file in fasta format
+	Pleaes let me have genewise program in the PATH
+	Please let the protein and its corresponding cds in the same name
+	Please let the alignment and sequence file in fasta format
 
 Usage: perl $0 pep.align cds.fa (-n num)
--n set the threads number, default 15
+	-n set the threads number, default 15
+	NO REDIRECTION ">" is needed, the result file would be *.pal4nal
+	while warning message would be revealed on the screen, or you can re-direct it
 
-the result file would be pep.align.pal4nal
-while warning message would be revealed on the screen, or you can re-direct it
-
-									Du Kang 2019-3-10
+												Du Kang 2019-3-10
 --------------------------------------
 EOF
 
@@ -72,8 +71,8 @@ foreach $key (keys %pseq){
 ############################## genewise in parallel
 
 foreach $key (keys %pseq){
-	`echo ">$key\n$pseq{$key}" >$key.pep`;
-	`echo ">$key\n$dseq{$key}" >$key.cds`;
+	`echo ">&P_$key\n$pseq{$key}" >$key.pep`;
+	`echo ">&C_$key\n$dseq{$key}" >$key.cds`;
 	sleep rand 2 while threads->list(threads::running) >= $max_process;
 	$thread{$key} = threads->new(sub{`genewise $key.pep $key.cds -quiet`});
 }
@@ -97,22 +96,14 @@ foreach $key (keys %pseq){
 	foreach $i (0..@wise-1){
 		$_=$wise[$i];
 		@_=split;
-		if (/^Query protein/){
-			$queflag= length($_[-1])>10? substr($_[-1],0,10) : $_[-1];
-		}
-		if (/^Target Sequence/){
-			$tarflag= length($_[-1])>10? substr($_[-1],0,10) : $_[-1];
-		}
-		if (defined $queflag and defined $tarflag){
-			if (/^$queflag.*\s(\d+)\s.*[A-Z]+/ and !/^$queflag.*\s\d+\s.*[a-z]+/){
-				$start=$1 if ! defined $start;
-                		$queseq .= substr ($_, 21, 49);
-        		}elsif (/^$tarflag.*\d\s.*[a-z]+/){
-				$tarcds1 .= substr ($_, 21, 49);
-                        	$tarpep .= substr ($wise[$i-1], 21, 49);
-                        	$tarcds2 .= substr ($wise[$i+1], 21, 49);
-                        	$tarcds3 .= substr ($wise[$i+2], 21, 49);
-			}
+		if (/^&P_\S*?\s+(\d+?)\s.*/){
+			$start=$1 if ! defined $start;
+                	$queseq .= substr ($_, 21, 49);
+        	}elsif (/^&C_/){
+			$tarcds1 .= substr ($_, 21, 49);
+                       	$tarpep .= substr ($wise[$i-1], 21, 49);
+                       	$tarcds2 .= substr ($wise[$i+1], 21, 49);
+                       	$tarcds3 .= substr ($wise[$i+2], 21, 49);
 		}
 	}
 #	print "$queseq\n$tarpep\n$tarcds1\n$tarcds2\n$tarcds3\n";
@@ -165,6 +156,7 @@ foreach $key (keys %pseq){
 
 	open OUT, ">>$outfile" or die $!;
 	print OUT ">$key\n$cseqal\n";
+	close OUT;
 }
 
 print "^^^^^^^^^^^^^^^^^^^^^ end ^^^^^^^^^^^^^^^^^^^^^^\n";
