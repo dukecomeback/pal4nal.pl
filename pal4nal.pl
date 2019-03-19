@@ -159,4 +159,4 @@ foreach $key (keys %pseq){
 	close OUT;
 }
 
-print "^^^^^^^^^^ end of $ARGV[0] ^^^^^^^^^^^^\n";
+print "^^^^^ end of $ARGV[0] ^^^^^\n";
