@@ -23,7 +23,7 @@ Recently I found that my CDS alignments, gap-removed using Gblocks -t=c, contain
   Bugs may exist, I would be very appreciated if you could let me know.   
   Many thanks and best wishes.   
 
-Kang (dukang1117@outlook.com)
+Kang (dukang1117@outlook.com)   
 2019-3-11
 
 ## v2.
