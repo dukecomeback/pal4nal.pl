@@ -26,3 +26,9 @@ Many thanks and best wishes.
 
                                                      Kang (dukang1117@outlook.com)
                                                      2019-3-11
+
+##v2.
+	Genewise is much more time-consuming than pal2nal.pl, so here I took adventage of pal2nal.pl.
+	For those with aa-cds consistency, they will be well looked after by the code from pal2nal.pl.
+	For those with aa-cds inconsistency, let's feed them to Genewise
+													                           2019-3-19
